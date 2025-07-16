@@ -5,9 +5,9 @@
 
 .searchInput {
 	font-size: 24px;
-	padding: 12px 56px 12px 56px;
 	border: var(--border);
 	border-radius: var(--border-radius);
+  padding: 12px 56px 12px 56px;
 	width: 500px;
 	z-index: 1;
 }
@@ -35,8 +35,28 @@
 }
 
 .searchDropdownWrapper {
+  flex-direction: column;
 	transform: translateY(var(--search-displacement-negative));
 	padding-top: var(--search-displacement);
 	border: var(--border);
 	border-radius: var(--border-radius);
+}
+
+.dropdownItem {
+  align-items: center;
+  font-size: 24px;
+  padding: 4px 56px 4px 56px;
+}
+.dropdownItem:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.historyItem {
+  color: #4d4dff;
+}
+
+.historyIcon {
+  font-size: 20px;
+  color: grey;
 }

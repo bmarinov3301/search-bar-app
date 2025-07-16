@@ -3,6 +3,7 @@
   --search-displacement-negative: -50px;
   --border: 1px solid grey;
   --border-radius: 24px;
+  --input-padding: 12px 56px 12px 56px;
 }
 
 body {
