@@ -1,3 +1,8 @@
 export interface SearchHistoryResponse {
-	searchHistory: string[];
+	data: DropdownItem[];
+}
+
+export interface DropdownItem {
+  value: string;
+  type: 'history' | 'suggestion'
 }

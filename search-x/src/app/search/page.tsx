@@ -12,7 +12,7 @@ export default async function Search({ searchParams }: SearchPageProps) {
 	const queryParams = await searchParams;
 	const searchTerm = queryParams.searchTerm as string;
 
-	if (searchTerm) {
+	if (searchTerm && !dataStore.searchHistory.includes(searchTerm)) {
 		dataStore.searchHistory.push(searchTerm);
 	}
 
