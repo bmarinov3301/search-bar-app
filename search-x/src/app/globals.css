@@ -1,3 +1,10 @@
+:root {
+	--search-displacement: 50px;
+  --search-displacement-negative: -50px;
+  --border: 1px solid grey;
+  --border-radius: 24px;
+}
+
 body {
   display: flex;
   flex-direction: column;
