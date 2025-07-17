@@ -46,6 +46,7 @@
   align-items: center;
   font-size: 24px;
   padding: 4px 56px 4px 56px;
+	z-index: 3;
 }
 .dropdownItem:hover {
   cursor: pointer;

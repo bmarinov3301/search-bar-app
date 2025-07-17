@@ -36,7 +36,7 @@ export default function SearchInput({ searchTerm: initialSearchTerm = '' }: Sear
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     setDropdownItems(searchData
-      .filter(item => item.value.startsWith(e.target.value))
+      .filter(item => item.value.toLowerCase().startsWith(e.target.value.toLowerCase()))
       .slice(0, 10)
     );
   }
@@ -58,9 +58,10 @@ export default function SearchInput({ searchTerm: initialSearchTerm = '' }: Sear
 				onFocus={() => {
 					setSearchDropdownVisible(true);
 				}}
-				onBlur={() => {
-					setSearchDropdownVisible(false);
-				}}
+				// todo: when onBlur is active autofilling the search bar doesn't work - clicking in items from the dropdown just hides the dropdwon
+				// onBlur={() => {
+				// 	setSearchDropdownVisible(false);
+				// }}
 				onChange={handleInputChange}
 				onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
 					if (e.key === 'Enter') {
@@ -76,7 +77,11 @@ export default function SearchInput({ searchTerm: initialSearchTerm = '' }: Sear
 					{dropdownItems.map((item, index) => {
 						return (
 							<div key={`history-${index}`}
-                className={`${styles.dropdownItem} ${isHistoryItem(item) ? styles.historyItem : ''}`}>
+                className={`${styles.dropdownItem} ${isHistoryItem(item) ? styles.historyItem : ''}`}
+								onClick={() => {
+									setSearchTerm(item.value);
+									handleSearch();
+								}}>
                   {item.type === 'history' && (
                     <CiClock2 className={styles.historyIcon} />
                   )}
